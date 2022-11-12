@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Container(
                   margin: EdgeInsets.only(top: 20),
                   child: const Text(
-                    "Register",
+                    "Create Account",
                     style: TextStyle(
                         color: Color(0xff2D3E4F),
                         fontWeight: FontWeight.w800,
@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  "Please fill in the form to begin creating your account",
+                  "Please enter the details below to continue.",
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                 ),
                 const SizedBox(height: 20),
@@ -44,7 +44,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _usernameController,
                     decoration: InputDecoration(
-                        labelText: 'Username',
+                        labelText: 'Full name',
+                        hintText: 'Enter your name',
                         labelStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
@@ -54,7 +55,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
-                        labelText: 'Email',
+                        labelText: 'Email Address',
+                        hintText: 'Enter your E-mail address',
                         labelStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
@@ -66,6 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                         labelText: 'Password',
+                        hintText: 'Type your password',
                         labelStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
@@ -77,6 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                         labelText: 'Password Confirmation',
+                        hintText: 'Re-type your password',
                         labelStyle: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),

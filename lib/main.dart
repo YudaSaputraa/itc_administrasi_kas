@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
           title: 'Administrasi Kas',
+          
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),

@@ -3,8 +3,11 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:itc_project_kas/features/mainPage/landing_page.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:itc_project_kas/features/mainPage/profile_page.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -215,7 +218,9 @@ class _SignInState extends State<SignIn> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.off(LandingPage());
+                    },
                     child: Text(
                       "Sign In",
                       style: GoogleFonts.poppins(

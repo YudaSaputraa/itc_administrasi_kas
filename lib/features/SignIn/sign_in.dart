@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:itc_project_kas/features/mainPage/landing_page.dart';
+import 'package:itc_project_kas/features/register/registerPage.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itc_project_kas/features/mainPage/profile_page.dart';
 
@@ -208,13 +209,12 @@ class _SignInState extends State<SignIn> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      /*
                       backgroundColor: const Color.fromARGB(
                         255,
                         3,
                         81,
                         92,
-                      ),*/
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -241,7 +241,9 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(RegisterPage());
+                      },
                       child: Text(
                         "Sign Up",
                         style: GoogleFonts.poppins(

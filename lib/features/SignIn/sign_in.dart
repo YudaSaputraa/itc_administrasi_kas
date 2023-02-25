@@ -18,7 +18,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  bool _isHidden = true;
+  bool _isHidden = false;
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -104,19 +104,25 @@ class _SignInState extends State<SignIn> {
                   child: SizedBox(
                     height: 7.h,
                     child: TextField(
-                      obscureText: _isHidden,
+                      obscureText: !_isHidden,
                       obscuringCharacter: "*",
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                         hintText: "Type your pasword",
-                        suffix: InkWell(
-                          onTap: _togglePasswordView,
-                          child: Icon(
+                        suffixIcon: IconButton(
+                          onPressed: _togglePasswordView,
+                          icon: Icon(
                             _isHidden
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
+                            color: const Color.fromARGB(
+                              255,
+                              3,
+                              81,
+                              92,
+                            ),
                           ),
                         ),
                         filled: true,

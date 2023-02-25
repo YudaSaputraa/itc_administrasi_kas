@@ -10,7 +10,6 @@ import 'package:itc_project_kas/features/mainPage/history_page.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sliding_switch/sliding_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:material_segmented_control/material_segmented_control.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
 

@@ -1,6 +1,7 @@
 import 'dart:ffi' as ffi;
 import 'dart:ui';
 
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -19,13 +20,12 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  static const List<String> list = <String>[
-    'Choose your division',
+  final List<String> items = [
+    'Public Relation',
     'Mobile',
     'Web',
-    'Project Manager'
   ];
-  String _dropDownValue = list.first;
+  String? _selectValue;
   var _passwordVisible = false;
   var _confirmPasswordVisible = false;
   final TextEditingController _usernameController = TextEditingController();
@@ -39,7 +39,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-            padding: EdgeInsets.all(34.0),
+            padding: EdgeInsets.all(5.w),
             child: ListView(
               children: <Widget>[
                 Container(
@@ -303,32 +303,88 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                DropdownButton<String>(
+                DropdownButton2(
                   isExpanded: true,
-                  value: _dropDownValue,
-                  icon: const Icon(Icons.arrow_drop_down),
-                  elevation: 24,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 3, 81, 92),
+                  hint: Row(
+                    children: const [
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'choose your division',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
-                  underline: null,
-                  onChanged: (String? value) {
-                    // This is called when the user selects an item.
+                  items: items
+                      .map((item) => DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: GoogleFonts.poppins(
+                                fontSize: 17.sp,
+                                color: Colors.black,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ))
+                      .toList(),
+                  value: _selectValue,
+                  onChanged: (value) {
                     setState(() {
-                      _dropDownValue = value!;
+                      _selectValue = value as String;
                     });
                   },
-                  items: list.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
+                  icon: const Icon(
+                    Icons.keyboard_arrow_down_outlined,
+                  ),
+                  iconSize: 4.h,
+                  iconEnabledColor: Colors.white,
+                  iconDisabledColor: const Color.fromRGBO(
+                    158,
+                    158,
+                    158,
+                    1,
+                  ),
+                  itemSplashColor: Colors.white,
+                  buttonHeight: 7.h,
+                  selectedItemHighlightColor: Colors.white,
+                  buttonWidth: 100.w,
+                  buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                  buttonDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(
+                      255,
+                      9,
+                      99,
+                      110,
+                    ),
+                  ),
+                  buttonElevation: 2,
+                  itemHeight: 40,
+                  itemPadding: const EdgeInsets.only(left: 14, right: 14),
+                  dropdownMaxHeight: 100.h,
+                  dropdownWidth: 95.w,
+                  dropdownPadding: null,
+                  dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(
+                      255,
+                      230,
+                      227,
+                      227,
+                    ),
+                  ),
+                  dropdownElevation: 8,
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 2.h,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -337,7 +393,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                              const Color.fromARGB(255, 3, 81, 92),
+                              const Color.fromARGB(
+                                255,
+                                9,
+                                99,
+                                110,
+                              ),
                             ),
                             minimumSize:
                                 MaterialStateProperty.all(Size(500, 50)),
@@ -361,7 +422,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             text = "The password confirmation is wrong";
                           } else if (!emailValid) {
                             text = "Wrong email format";
-                          } else if (_dropDownValue == list.first) {
+                          } else if (_selectValue != null) {
                             text = "Please choose your division";
                           } else {
                             Get.to(() => SignIn());

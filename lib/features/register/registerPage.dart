@@ -430,22 +430,22 @@ class _RegisterPageState extends State<RegisterPage> {
                           SnackBar snackBar = SnackBar(content: Text(text));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text('Already have an account?',
+                      const Text('Already have an account?',
                           style: TextStyle(fontSize: 16)),
                       TextButton(
                           onPressed: (() {
                             Get.to(SignIn());
                           }),
-                          child: Text('Sign In',
+                          child: const Text('Sign In',
                               style: TextStyle(
-                                  color: const Color.fromARGB(255, 3, 81, 92),
+                                  color: Color.fromARGB(255, 3, 81, 92),
                                   fontSize: 16)))
                     ])
                   ],

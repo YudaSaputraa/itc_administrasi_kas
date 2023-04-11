@@ -336,8 +336,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage("assets/images/koYulis.jpeg"),
+                          fit: BoxFit.contain,
+                          image: AssetImage("assets/images/cuy.png"),
                         ),
                       ),
                       height: 13.h,

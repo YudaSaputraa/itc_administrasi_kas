@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -127,11 +127,11 @@ class _HomePageState extends State<HomePage> {
                                   Row(
                                     children: const [
                                       IconButton(
-                                          onPressed: null,
-                                          icon:
-                                              Icon(Icons.navigate_next_rounded))
+                                        onPressed: null,
+                                        icon: Icon(Icons.navigate_next_rounded),
+                                      )
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                               Positioned.fill(
@@ -175,11 +175,11 @@ class _HomePageState extends State<HomePage> {
                                   Row(
                                     children: const [
                                       IconButton(
-                                          onPressed: null,
-                                          icon:
-                                              Icon(Icons.navigate_next_rounded))
+                                        onPressed: null,
+                                        icon: Icon(Icons.navigate_next_rounded),
+                                      ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                               Container(
@@ -212,7 +212,7 @@ class Bill extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                width: 2.h,
+                width: 1.h,
               ),
               SizedBox(
                 width: 30.w,
@@ -332,7 +332,7 @@ class History extends StatelessWidget {
                               ],
                             )
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
